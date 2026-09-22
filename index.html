@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Velha + Lig 4 (Connect 4 Tic-Tac-Toe)</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Fonte Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Jogo da Velha + Lig 4</h1>
+        <p class="subtitle">
+          Vença o mini-game (Lig 4) para conquistar a casa no Jogo da Velha
+          principal!
+        </p>
+      </header>
+
+      <!-- Painel de Status -->
+      <div class="status-panel">
+        <div class="player-card p1 active" id="card-p1">
+          <div class="avatar">X</div>
+          <div class="info">
+            <span class="player-name">Jogador 1</span>
+            <span class="player-color-badge blue">Azul</span>
+          </div>
+        </div>
+
+        <div class="turn-indicator">
+          <span class="turn-label">Vez de:</span>
+          <div class="current-turn-badge p1" id="turn-badge">
+            <span id="turn-text">Jogador 1 (Azul)</span>
+          </div>
+        </div>
+
+        <div class="player-card p2" id="card-p2">
+          <div class="avatar">O</div>
+          <div class="info">
+            <span class="player-name">Jogador 2</span>
+            <span class="player-color-badge red">Vermelho</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout dos Tabuleiros -->
+      <main class="boards-layout">
+        <!-- Tabuleiro Principal (Jogo da Velha - 3x3) -->
+        <section class="main-board-section">
+          <h2>1. Tabuleiro Principal (3x3)</h2>
+          <p class="section-desc">
+            Escolha uma casa livre para disputá-la no mini-game:
+          </p>
+
+          <div class="tic-tac-toe-grid" id="main-grid">
+            <!-- 9 Quadrantes gerados via JavaScript -->
+          </div>
+        </section>
+
+        <!-- Tabuleiro Secundário (Mini-Game Connect 4 - 9 Colunas x 6 Linhas) -->
+        <section class="minigame-section">
+          <div class="minigame-header">
+            <h2>2. Disputa da Casa <span id="active-cell-label">#--</span></h2>
+            <button
+              class="btn-reset-mini"
+              id="btn-reset-mini"
+              title="Reiniciar esta disputa"
+            >
+              Reiniciar Mini-Game
+            </button>
+          </div>
+          <p class="section-desc">
+            Alinhe 4 retângulos da sua cor (horizontal, vertical ou diagonal)
+            para dominar esta casa!
+          </p>
+
+          <!-- Botoes de Soltar Peça por Coluna -->
+          <div class="drop-buttons-row" id="drop-buttons-row">
+            <!-- 9 botões gerados via JS -->
+          </div>
+
+          <!-- Grade 9 colunas x 6 retângulos de altura -->
+          <div class="connect4-grid" id="connect4-grid">
+            <!-- 54 celulas geradas via JS -->
+          </div>
+        </section>
+      </main>
+
+      <!-- Painel de Ações -->
+      <footer class="action-footer">
+        <button class="btn-primary" id="btn-reset-game">
+          Reiniciar Jogo Completo
+        </button>
+      </footer>
+    </div>
+
+    <!-- Modal de Vitória Final -->
+    <div class="modal-overlay" id="winner-modal">
+      <div class="modal-content">
+        <h2 id="modal-title">Parabéns!</h2>
+        <p id="modal-message">O Jogador 1 venceu a partida!</p>
+        <button class="btn-primary" id="btn-modal-restart">
+          Jogar Novamente
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
